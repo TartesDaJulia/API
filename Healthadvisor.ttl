@@ -1,0 +1,1279 @@
+@prefix : <http://www.tartesdajulia.com/ontologies/Healthadvisor#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.tartesdajulia.com/ontologies/Healthadvisor> .
+
+<http://www.tartesdajulia.com/ontologies/Healthadvisor> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#hasInstitution
+:hasInstitution rdf:type owl:ObjectProperty ;
+                owl:inverseOf :isInstitutionFrom .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#hasLocation
+:hasLocation rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isLocationFrom .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#hasSpecialty
+:hasSpecialty rdf:type owl:ObjectProperty ;
+              owl:inverseOf :isSpecialtyFrom .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#hasSubsystem
+:hasSubsystem rdf:type owl:ObjectProperty ;
+              owl:inverseOf :isSubsystemFrom .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#isInstitutionFrom
+:isInstitutionFrom rdf:type owl:ObjectProperty .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#isLocationFrom
+:isLocationFrom rdf:type owl:ObjectProperty .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#isRatingFrom
+:isRatingFrom rdf:type owl:ObjectProperty .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#isSpecialtyFrom
+:isSpecialtyFrom rdf:type owl:ObjectProperty .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#isSubsystemFrom
+:isSubsystemFrom rdf:type owl:ObjectProperty .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#ratesInstitution
+:ratesInstitution rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#avg_rating
+:avg_rating rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Institution .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#text
+:text rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Rating .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#district
+:district rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Location .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#email
+:email rdf:type owl:DatatypeProperty ;
+       rdfs:domain [ rdf:type owl:Class ;
+                     owl:unionOf ( :Institution
+                                   :Person
+                                 )
+                   ] .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#expiration_date
+:expiration_date rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :InstitutionSpecialties .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#first_line
+:first_line rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Location .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#first_name
+:first_name rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Person .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#full_name
+:full_name rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Subsystem .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#id
+:id rdf:type owl:DatatypeProperty ;
+    rdfs:domain [ rdf:type owl:Class ;
+                  owl:unionOf ( :Institution
+                                :InstitutionSpecialties
+                                :Location
+                                :Person
+                                :Rating
+                                :Specialty
+                                :Subsystem
+                              )
+                ] .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#image_url
+:image_url rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Institution .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#last_name
+:last_name rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Person .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#latitude
+:latitude rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Location .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#locality
+:locality rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Location .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#longitude
+:longitude rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Location .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#municipality
+:municipality rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Location .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:domain [ rdf:type owl:Class ;
+                    owl:unionOf ( :Specialty
+                                  :Subsystem
+                                )
+                  ] .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#nif
+:nif rdf:type owl:DatatypeProperty ;
+     rdfs:domain :Institution .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#password
+:password rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Person .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#phone_number
+:phone_number rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Institution .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#postal_code
+:postal_code rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Location .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#score
+:score rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Rating .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#second_line
+:second_line rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Location .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#time_stamp
+:time_stamp rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Rating .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Institution
+:Institution rdf:type owl:Class .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#InstitutionSpecialties
+:InstitutionSpecialties rdf:type owl:Class .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Location
+:Location rdf:type owl:Class .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Person
+:Person rdf:type owl:Class .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Rating
+:Rating rdf:type owl:Class .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Specialty
+:Specialty rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:oneOf ( :Cardiology
+                                             :Dermatology
+                                             :Family_medicine
+                                             :Gynecology
+                                             :Neurology
+                                             :Obstetrics
+                                             :Ophthalmology
+                                             :Orthopedics
+                                             :Otorhinolaryngology
+                                             :Pediatrics
+                                             :Psychiatry
+                                             :Urology
+                                           )
+                               ] .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Subsystem
+:Subsystem rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:oneOf ( :ADM
+                                             :ADSE
+                                             :Allianz
+                                             :Generalli
+                                             :Medis
+                                             :Multicare
+                                             :SAD-GNR
+                                             :SAD-PSP
+                                             :SAMS
+                                             :Tranquilidade
+                                           )
+                               ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#ADM
+:ADM rdf:type owl:NamedIndividual ,
+              :Subsystem ;
+     :full_name "Assistência na Doença aos Militares da Forças Armadas" ;
+     :id "1" ;
+     :name "ADM" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#ADSE
+:ADSE rdf:type owl:NamedIndividual ,
+               :Subsystem ;
+      :full_name "Assistência na Doença dos Servidores do Estado" ;
+      :id "2" ;
+      :name "ADSE" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Allianz
+:Allianz rdf:type owl:NamedIndividual ,
+                  :Subsystem ;
+         :full_name "Allianz" ;
+         :id "7" ;
+         :name "Allianz" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Cardiology
+:Cardiology rdf:type owl:NamedIndividual ,
+                     :Specialty ;
+            :id "1" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Dermatology
+:Dermatology rdf:type owl:NamedIndividual ,
+                      :Specialty ;
+             :id "2" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Family_medicine
+:Family_medicine rdf:type owl:NamedIndividual ,
+                          :Specialty ;
+                 :id "12" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Generalli
+:Generalli rdf:type owl:NamedIndividual ,
+                    :Subsystem ;
+           :full_name "Generalli" ;
+           :id "6" ;
+           :name "Generalli" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Gynecology
+:Gynecology rdf:type owl:NamedIndividual ,
+                     :Specialty ;
+            :id "3" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Medis
+:Medis rdf:type owl:NamedIndividual ,
+                :Subsystem ;
+       :full_name "Médis" ;
+       :id "8" ;
+       :name "Médis" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Multicare
+:Multicare rdf:type owl:NamedIndividual ,
+                    :Subsystem ;
+           :full_name "Multicare" ;
+           :id "9" ;
+           :name "Multicare" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Neurology
+:Neurology rdf:type owl:NamedIndividual ,
+                    :Specialty ;
+           :id "4" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Obstetrics
+:Obstetrics rdf:type owl:NamedIndividual ,
+                     :Specialty ;
+            :id "5" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Ophthalmology
+:Ophthalmology rdf:type owl:NamedIndividual ,
+                        :Specialty ;
+               :id "6" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Orthopedics
+:Orthopedics rdf:type owl:NamedIndividual ,
+                      :Specialty ;
+             :id "7" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Otorhinolaryngology
+:Otorhinolaryngology rdf:type owl:NamedIndividual ,
+                              :Specialty ;
+                     :id "8" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Pediatrics
+:Pediatrics rdf:type owl:NamedIndividual ,
+                     :Specialty ;
+            :id "9" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Psychiatry
+:Psychiatry rdf:type owl:NamedIndividual ,
+                     :Specialty ;
+            :id "10" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#SAD-GNR
+:SAD-GNR rdf:type owl:NamedIndividual ,
+                  :Subsystem ;
+         :full_name "Serviços de Assistência na Doença - Guarda Nacional Republicana" ;
+         :id "4" ;
+         :name "SAD-GNR" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#SAD-PSP
+:SAD-PSP rdf:type owl:NamedIndividual ,
+                  :Subsystem ;
+         :full_name "Serviços de Assistência na Doença - Polícia de Segurança Pública" ;
+         :id "3" ;
+         :name "SAD-PSP" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#SAMS
+:SAMS rdf:type owl:NamedIndividual ,
+               :Subsystem ;
+      :full_name "Serviços de Assistência Médico-Social" ;
+      :id "5" ;
+      :name "SAMS" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Tranquilidade
+:Tranquilidade rdf:type owl:NamedIndividual ,
+                        :Subsystem ;
+               :full_name "Tranquilidade" ;
+               :id "10" ;
+               :name "Tranquilidade" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#Urology
+:Urology rdf:type owl:NamedIndividual ,
+                  :Specialty ;
+         :id "11" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#institution1
+:institution1 rdf:type owl:NamedIndividual ,
+                       :Institution ;
+              :hasLocation :location1 ;
+              :avg_rating "4.5" ;
+              :email "geral@hbraga.pt" ;
+              :id "1" ;
+              :image_url "https://www.hospitaldebraga.pt/storage/pages/Hospital-de-Braga-home-1604254774.jpg" ;
+              :name "Hospital de Braga" ;
+              :nif "511222001" ;
+              :phone_number "253027000" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#institution10
+:institution10 rdf:type owl:NamedIndividual ,
+                        :Institution ;
+               :hasLocation :location10 ;
+               :avg_rating "4.3" ;
+               :email "geral@hpedrohispano.pt" ;
+               :id "10" ;
+               :image_url "https://static.globalnoticias.pt/jn/image.aspx?brand=JN&type=generate&guid=863af9a2-1836-47d4-8fca-566e0a329b9d&w=744&h=495&t=20180201194500" ;
+               :name "Hospital Pedro Hispano" ;
+               :nif "511222010" ;
+               :phone_number "229391000" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#institution11
+:institution11 rdf:type owl:NamedIndividual ,
+                        :Institution ;
+               :hasLocation :location11 ;
+               :avg_rating "3.9" ;
+               :email "geral@heduardosantossilva.pt" ;
+               :id "11" ;
+               :image_url "http://gaia.bloco.org/sites/default/files/imagecache/400xY/hospital-gaia_0.jpg" ;
+               :name "Hospital Eduardo Santos Silva" ;
+               :nif "511222011" ;
+               :phone_number "227865100" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#institution2
+:institution2 rdf:type owl:NamedIndividual ,
+                       :Institution ;
+              :hasLocation :location2 ;
+              :avg_rating "4.0";
+              :email "geral@hpbraga.pt" ;
+              :id "2" ;
+              :image_url "https://s3.portugalio.com/u/e6/70/hospital-privado-de-braga-sa_xl.jpg" ;
+              :name "Hospital Privado de Braga" ;
+              :nif "511222002" ;
+              :phone_number "253680200" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#institution3
+:institution3 rdf:type owl:NamedIndividual ,
+                       :Institution ;
+              :hasLocation :location3 ;
+              :avg_rating "4.3" ;
+              :email "geral@hguimaraes.pt" ;
+              :id "3" ;
+              :image_url "https://www.cm-guimaraes.pt/thumbs/cmguimaraes/uploads/news/image/2416/hospital_1_1024_2500.jpg" ;
+              :name "Hospital de Guimarães" ;
+              :nif "511222003" ;
+              :phone_number "253540330" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#institution4
+:institution4 rdf:type owl:NamedIndividual ,
+                       :Institution ;
+              :hasLocation :location4 ;
+              :avg_rating "4.5" ;
+              :email "geral@hsaojoao.pt" ;
+              :id "4" ;
+              :image_url "https://www.impala.pt/wp-content/uploads/fly-images/345033/25471701-9999x9999-lt.jpg" ;
+              :name "Hospital de São João" ;
+              :nif "511222004" ;
+              :phone_number "225512100" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#institution5
+:institution5 rdf:type owl:NamedIndividual ,
+                       :Institution ;
+              :hasLocation :location5 ;
+              :avg_rating "4.0" ;
+              :email "geral@hsantoantonio.pt" ;
+              :id "5" ;
+              :image_url "https://upload.wikimedia.org/wikipedia/commons/3/36/Hospital_Santo_Antonio_%28Porto%29.JPG" ;
+              :name "Hospital de Santo António" ;
+              :nif "511222005" ;
+              :phone_number "222077500" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#institution6
+:institution6 rdf:type owl:NamedIndividual ,
+                       :Institution ;
+              :hasLocation :location6 ;
+              :avg_rating "3.5" ;
+              :email "geral@hprelada.pt" ;
+              :id "6";
+              :image_url "https://portaldasaude.scmp.pt/assets/misc/img/hospitais/Hospital%20da%20Prelada.jpg" ;
+              :name "Hospital da Prelada" ;
+              :nif "511222006" ;
+              :phone_number "228330770" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#institution7
+:institution7 rdf:type owl:NamedIndividual ,
+                       :Institution ;
+              :hasLocation :location7 ;
+              :avg_rating "3.8" ;
+              :email "geral@cbonfim.pt" ;
+              :id "7" ;
+              :image_url "https://scontent.fopo2-1.fna.fbcdn.net/v/t1.0-9/1622270_267918746705049_1846727913_n.png?_nc_cat=101&_nc_ohc=Qr73qYPhJRAAQmdNGRuRcfMby3OUjvn-D1JJlIj4-DRtbx-tzdcwh9_Cg&_nc_ht=scontent.fopo2-1.fna&oh=885db40b95e1683aab91f591b6de233e&oe=5E9B750B" ;
+              :name "Clínica do Bonfim" ;
+              :nif "511222007" ;
+              :phone_number "225103411" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#institution8
+:institution8 rdf:type owl:NamedIndividual ,
+                       :Institution ;
+              :hasLocation :location8 ;
+              :avg_rating "4.1" ;
+              :email "geral@hsantamaria.pt" ;
+              :id "8" ;
+              :image_url "http://img.pai.pt/mysite/media/35/04/6/0c09edc5-42de-453f-88f5-e31343f3dbb7_LARGE.jpg" ;
+              :name "Hospital de Santa Maria" ;
+              :nif "511222008" ;
+              :phone_number "225082000" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#institution9
+:institution9 rdf:type owl:NamedIndividual ,
+                       :Institution ;
+              :hasLocation :location9 ;
+              :avg_rating "4.0" ;
+              :email "geral@hbraga.pt" ;
+              :id "9" ;
+              :image_url "https://www.hospitaldalapa.pt/media/2014/05/64664593.jpg" ;
+              :name "Hospital da Lapa" ;
+              :nif "511222009" ;
+              :phone_number "225502828" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is1
+:is1 rdf:type owl:NamedIndividual ,
+              :InstitutionSpecialties ;
+     :hasSpecialty :Pediatrics ;
+     :hasSubsystem :SAD-PSP ;
+     :isInstitutionFrom :institution1 ;
+     :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+     :id "1" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is10
+:is10 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Otorhinolaryngology ;
+      :hasSubsystem :SAMS ;
+      :isInstitutionFrom :institution4 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "10" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is11
+:is11 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Obstetrics ;
+      :hasSubsystem :Tranquilidade ;
+      :isInstitutionFrom :institution4 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "11" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is12
+:is12 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Cardiology ;
+      :hasSubsystem :Medis ;
+      :isInstitutionFrom :institution4 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "12" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is13
+:is13 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Pediatrics ;
+      :hasSubsystem :Medis ;
+      :isInstitutionFrom :institution5 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "13" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is14
+:is14 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Gynecology ;
+      :hasSubsystem :ADM ;
+      :isInstitutionFrom :institution5 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "14" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is15
+:is15 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Neurology ;
+      :hasSubsystem :ADSE ;
+      :isInstitutionFrom :institution5 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "15" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is16
+:is16 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Otorhinolaryngology ;
+      :hasSubsystem :SAD-PSP ;
+      :isInstitutionFrom :institution6 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "16" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is17
+:is17 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Psychiatry ;
+      :hasSubsystem :Tranquilidade ;
+      :isInstitutionFrom :institution6 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "17" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is18
+:is18 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Dermatology ;
+      :hasSubsystem :ADM ;
+      :isInstitutionFrom :institution6 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "18" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is19
+:is19 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Psychiatry ;
+      :hasSubsystem :SAD-PSP ;
+      :isInstitutionFrom :institution7 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "19" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is2
+:is2 rdf:type owl:NamedIndividual ,
+              :InstitutionSpecialties ;
+     :hasSpecialty :Obstetrics ;
+     :hasSubsystem :Generalli ;
+     :isInstitutionFrom :institution1 ;
+     :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+     :id "2" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is20
+:is20 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Gynecology ;
+      :hasSubsystem :ADSE ;
+      :isInstitutionFrom :institution7 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "20" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is21
+:is21 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Otorhinolaryngology ;
+      :hasSubsystem :SAD-GNR ;
+      :isInstitutionFrom :institution7 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "21" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is22
+:is22 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Obstetrics ;
+      :hasSubsystem :Tranquilidade ;
+      :isInstitutionFrom :institution8 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "22" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is23
+:is23 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Orthopedics ;
+      :hasSubsystem :Generalli ;
+      :isInstitutionFrom :institution8 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "23" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is24
+:is24 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Pediatrics ;
+      :hasSubsystem :SAMS ;
+      :isInstitutionFrom :institution8 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "24" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is25
+:is25 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Dermatology ;
+      :hasSubsystem :Multicare ;
+      :isInstitutionFrom :institution9 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "25" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is26
+:is26 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Ophthalmology ;
+      :hasSubsystem :SAMS ;
+      :isInstitutionFrom :institution9 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "26" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is27
+:is27 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Gynecology ;
+      :hasSubsystem :ADSE ;
+      :isInstitutionFrom :institution9 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "27" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is28
+:is28 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Otorhinolaryngology ;
+      :hasSubsystem :ADSE ;
+      :isInstitutionFrom :institution10 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "28" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is29
+:is29 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Pediatrics ;
+      :hasSubsystem :Generalli ;
+      :isInstitutionFrom :institution10 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "29" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is3
+:is3 rdf:type owl:NamedIndividual ,
+              :InstitutionSpecialties ;
+     :hasSpecialty :Gynecology ;
+     :hasSubsystem :ADSE ;
+     :isInstitutionFrom :institution1 ;
+     :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+     :id "3" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is30
+:is30 rdf:type owl:NamedIndividual ,
+               :InstitutionSpecialties ;
+      :hasSpecialty :Cardiology ;
+      :hasSubsystem :Medis ;
+      :isInstitutionFrom :institution10 ;
+      :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+      :id "30" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is4
+:is4 rdf:type owl:NamedIndividual ,
+              :InstitutionSpecialties ;
+     :hasSpecialty :Obstetrics ;
+     :hasSubsystem :SAD-GNR ;
+     :isInstitutionFrom :institution2 ;
+     :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+     :id "4" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is5
+:is5 rdf:type owl:NamedIndividual ,
+              :InstitutionSpecialties ;
+     :hasSpecialty :Cardiology ;
+     :hasSubsystem :Allianz ;
+     :isInstitutionFrom :institution2 ;
+     :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+     :id "5" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is6
+:is6 rdf:type owl:NamedIndividual ,
+              :InstitutionSpecialties ;
+     :hasSpecialty :Cardiology ;
+     :hasSubsystem :Medis ;
+     :isInstitutionFrom :institution3 ;
+     :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+     :id "6" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is7
+:is7 rdf:type owl:NamedIndividual ,
+              :InstitutionSpecialties ;
+     :hasSpecialty :Psychiatry ;
+     :hasSubsystem :Generalli ;
+     :isInstitutionFrom :institution2 ;
+     :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+     :id "7" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is8
+:is8 rdf:type owl:NamedIndividual ,
+              :InstitutionSpecialties ;
+     :hasSpecialty :Psychiatry ;
+     :hasSubsystem :ADSE ;
+     :isInstitutionFrom :institution3 ;
+     :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+     :id "8" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#is9
+:is9 rdf:type owl:NamedIndividual ,
+              :InstitutionSpecialties ;
+     :hasSpecialty :Gynecology ;
+     :hasSubsystem :Tranquilidade ;
+     :isInstitutionFrom :institution3 ;
+     :expiration_date "2023-12-31T00:00:00"^^xsd:dateTime ;
+     :id "9" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#location1
+:location1 rdf:type owl:NamedIndividual ,
+                    :Location ;
+           :district "Braga" ;
+           :first_line "Sete Fontes - São Victor" ;
+           :id "1" ;
+           :latitude "41.567938" ;
+           :locality "Braga" ;
+           :longitude "-8.399062" ;
+           :municipality "Braga" ;
+           :postal_code "4710-243" ;
+           :second_line "" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#location10
+:location10 rdf:type owl:NamedIndividual ,
+                     :Location ;
+            :district "Porto" ;
+            :first_line "Rua Dr. Eduardo Torres" ;
+            :id "10" ;
+            :latitude "41.181812" ;
+            :locality "Senhora da Hora" ;
+            :longitude "-8.663438" ;
+            :municipality "Matosinhos" ;
+            :postal_code "4464-513" ;
+            :second_line "" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#location11
+:location11 rdf:type owl:NamedIndividual ,
+                     :Location ;
+            :district "Porto" ;
+            :first_line "Rua Conceição Fernandes" ;
+            :id "11" ;
+            :latitude "41.104937" ;
+            :locality "Vila Nova de Gaia" ;
+            :longitude "-8.591313" ;
+            :municipality "Vila Nova de Gaia" ;
+            :postal_code "4434-502" ;
+            :second_line "" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#location2
+:location2 rdf:type owl:NamedIndividual ,
+                    :Location ;
+           :district "Braga" ;
+           :first_line "Lugar da Igreja Nogueira" ;
+           :id "2" ;
+           :latitude "41.524688" ;
+           :locality "Braga" ;
+           :longitude "-8.414187" ;
+           :municipality "Braga" ;
+           :postal_code "4715-196" ;
+           :second_line "" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#location3
+:location3 rdf:type owl:NamedIndividual ,
+                    :Location ;
+           :district "Braga" ;
+           :first_line "Rua dos Cutileiros - Creixomil" ;
+           :id "3" ;
+           :latitude "41.441938" ;
+           :locality "Guimarães" ;
+           :longitude "-8.305188" ;
+           :municipality "Guimarães" ;
+           :postal_code "4835-044" ;
+           :second_line "" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#location4
+:location4 rdf:type owl:NamedIndividual ,
+                    :Location ;
+           :district "Porto" ;
+           :first_line "Alameda Prof. Hernâni Monteiro" ;
+           :id "4" ;
+           :latitude "41.181438" ;
+           :locality "Porto" ;
+           :longitude "-8.601062" ;
+           :municipality "Porto" ;
+           :postal_code "4200-319" ;
+           :second_line "" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#location5
+:location5 rdf:type owl:NamedIndividual ,
+                    :Location ;
+           :district "Porto" ;
+           :first_line "Largo do Prof. Abel Salazar" ;
+           :id "5" ;
+           :latitude "41.147187" ;
+           :locality "Porto" ;
+           :longitude "-8.619563" ;
+           :municipality "Porto" ;
+           :postal_code "4099-001" ;
+           :second_line "" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#location6
+:location6 rdf:type owl:NamedIndividual ,
+                    :Location ;
+           :district "Porto" ;
+           :first_line "Rua de Sarmento de Beires" ;
+           :id "6" ;
+           :latitude "41.170688" ;
+           :locality "Porto" ;
+           :longitude "-8.628937" ;
+           :municipality "Porto" ;
+           :postal_code "4250-449" ;
+           :second_line "" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#location7
+:location7 rdf:type owl:NamedIndividual ,
+                    :Location ;
+           :district "Porto" ;
+           :first_line "Avenida Fernão Magalhães, 442" ;
+           :id "7" ;
+           :latitude "41.153813" ;
+           :locality "Porto" ;
+           :longitude "-8.595938" ;
+           :municipality "Porto" ;
+           :postal_code "4349-008" ;
+           :second_line "" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#location8
+:location8 rdf:type owl:NamedIndividual ,
+                    :Location ;
+           :district "Porto" ;
+           :first_line "Rua de Camões, 906" ;
+           :id "8" ;
+           :latitude "41.160062" ;
+           :locality "Porto" ;
+           :longitude "-8.609563" ;
+           :municipality "Porto" ;
+           :postal_code "4049-025" ;
+           :second_line "" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#location9
+:location9 rdf:type owl:NamedIndividual ,
+                    :Location ;
+           :district "Porto" ;
+           :first_line "Largo da Lapa, 1" ;
+           :id "9" ;
+           :latitude "41.157188" ;
+           :locality "Porto" ;
+           :longitude "-8.613188" ;
+           :municipality "Porto" ;
+           :postal_code "4050-069" ;
+           :second_line "" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#person1
+:person1 rdf:type owl:NamedIndividual ,
+                  :Person ;
+         :email "ana.antunes@email.com" ;
+         :first_name "Ana" ;
+         :id "1" ;
+         :last_name "Antunes" ;
+         :password "12345" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#person2
+:person2 rdf:type owl:NamedIndividual ,
+                  :Person ;
+         :email "bruno.barbosa@email.com" ;
+         :first_name "Bruno" ;
+         :id "2" ;
+         :last_name "Barbosa" ;
+         :password "12345" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#person3
+:person3 rdf:type owl:NamedIndividual ,
+                  :Person ;
+         :email "carla.carvalho@email.com" ;
+         :first_name "Carla" ;
+         :id "3" ;
+         :last_name "Carvalho" ;
+         :password "12345" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#person4
+:person4 rdf:type owl:NamedIndividual ,
+                  :Person ;
+         :email "diogo.damasio@email.com" ;
+         :first_name "Diogo" ;
+         :id "4" ;
+         :last_name "Damásio" ;
+         :password "12345" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#person5
+:person5 rdf:type owl:NamedIndividual ,
+                  :Person ;
+         :email "emilia.esteves@email.com" ;
+         :first_name "Emília" ;
+         :id "5" ;
+         :last_name "Esteves" ;
+         :password "12345" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r1
+:r1 rdf:type owl:NamedIndividual ,
+             :Rating ;
+    :isRatingFrom :person1 ;
+    :ratesInstitution :institution1 ;
+    :id "1" ;
+    :score "4.7" ;
+    :time_stamp "2023-12-31T10:21:00"^^xsd:dateTime ;
+    :text "Very good" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r10
+:r10 rdf:type owl:NamedIndividual ,
+              :Rating ;
+     :isRatingFrom :person3 ;
+     :ratesInstitution :institution5 ;
+     :id "10" ;
+     :score "4.2" ;
+     :time_stamp "2019-12-06T23:12:00"^^xsd:dateTime ;
+     :text "Good service with nice staff" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r11
+:r11 rdf:type owl:NamedIndividual ,
+              :Rating ;
+     :isRatingFrom :person3 ;
+     :ratesInstitution :institution6 ;
+     :id "11" ;
+     :score "4.2" ;
+     :time_stamp "2019-12-06T23:54:00"^^xsd:dateTime ;
+     :text "I felt at home!" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r12
+:r12 rdf:type owl:NamedIndividual ,
+              :Rating ;
+     :isRatingFrom :person3 ;
+     :ratesInstitution :institution6 ;
+     :id "5" ;
+     :score "4.1" ;
+     :time_stamp "2019-12-07T01:37:00"^^xsd:dateTime ;
+     :text "I really liked Dr.Azamat Bagatov" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r13
+:r13 rdf:type owl:NamedIndividual ,
+              :Rating ;
+     :isRatingFrom :person4 ;
+     :ratesInstitution :institution7 ;
+     :id "13" ;
+     :score "4.4" ;
+     :time_stamp "2019-12-07T07:44:00"^^xsd:dateTime ;
+     :text "I have to say that I had a really great experience, the staff was super friendly and the clinic is modern. Overall excellent, would recommend everyone!" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r14
+:r14 rdf:type owl:NamedIndividual ,
+              :Rating ;
+     :isRatingFrom :person4 ;
+     :ratesInstitution :institution7 ;
+     :id "14" ;
+     :score "4.1" ;
+     :time_stamp "2019-12-07T08:12:00"^^xsd:dateTime ;
+     :text "Very good" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r15
+:r15 rdf:type owl:NamedIndividual ,
+              :Rating ;
+     :isRatingFrom :person4 ;
+     :ratesInstitution :institution8 ;
+     :id "15" ;
+     :score "4.3" ;
+     :time_stamp "2019-12-08T10:13:00"^^xsd:dateTime ;
+     :text "Great Success" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r16
+:r16 rdf:type owl:NamedIndividual ,
+              :Rating ;
+     :isRatingFrom :person4 ;
+     :ratesInstitution :institution8 ;
+     :id "16" ;
+     :score "4.6" ;
+     :time_stamp "2019-12-09T12:35:00"^^xsd:dateTime ;
+     :text "Back in Kazakhstan it would be considered best hospital in entire nation" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r17
+:r17 rdf:type owl:NamedIndividual ,
+              :Rating ;
+     :isRatingFrom :person5 ;
+     :ratesInstitution :institution9 ;
+     :id "17" ;
+     :score "4.1" ;
+     :time_stamp "2019-12-09T16:08:00"^^xsd:dateTime ;
+     :text "I liked the receptionist" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r18
+:r18 rdf:type owl:NamedIndividual ,
+              :Rating ;
+     :isRatingFrom :person5 ;
+     :ratesInstitution :institution9 ;
+     :id "18" ;
+     :score "4.3" ;
+     :time_stamp "2019-12-09 18:24:00"^^xsd:dateTime ;
+     :text "Very good" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r19
+:r19 rdf:type owl:NamedIndividual ,
+              :Rating ;
+     :isRatingFrom :person2 ;
+     :ratesInstitution :institution3 ;
+     :id "19" ;
+     :score "4.2" ;
+     :time_stamp "2019-12-05T19:05:00"^^xsd:dateTime ;
+     :text "Very friendly people work there." .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r2
+:r2 rdf:type owl:NamedIndividual ,
+             :Rating ;
+    :isRatingFrom :person1 ;
+    :ratesInstitution :institution1 ;
+    :id "2" ;
+    :score "4.4" ;
+    :time_stamp "2019-12-05T14:45:00"^^xsd:dateTime ;
+    :text "I was very well taken care of" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r20
+:r20 rdf:type owl:NamedIndividual ,
+              :Rating ;
+     :isRatingFrom :person5 ;
+     :ratesInstitution :institution10 ;
+     :id "20" ;
+     :score "4.0" ;
+     :time_stamp "2019-12-10T08:59:00"^^xsd:dateTime ;
+     :text "Very good" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r3
+:r3 rdf:type owl:NamedIndividual ,
+             :Rating ;
+    :isRatingFrom :person1 ;
+    :ratesInstitution :institution2 ;
+    :id "3" ;
+    :score "4.3" ;
+    :time_stamp "2019-12-05T15:43:00"^^xsd:dateTime ;
+    :text "Great establishment." .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r4
+:r4 rdf:type owl:NamedIndividual ,
+             :Rating ;
+    :isRatingFrom :person1 ;
+    :ratesInstitution :institution1 ;
+    :id "4" ;
+    :score "4.5" ;
+    :time_stamp "2019-12-05T19:03:00"^^xsd:dateTime ;
+    :text "Nice place" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r5
+:r5 rdf:type owl:NamedIndividual ,
+             :Rating ;
+    :isRatingFrom :person2 ;
+    :ratesInstitution :institution3 ;
+    :id "5" ;
+    :score "4.2" ;
+    :time_stamp "2019-12-05T19:05:00"^^xsd:dateTime ;
+    :text "Good." .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r6
+:r6 rdf:type owl:NamedIndividual ,
+             :Rating ;
+    :isRatingFrom :person2 ;
+    :ratesInstitution :institution3 ;
+    :id "6" ;
+    :score "4.5" ;
+    :time_stamp "2019-12-05T22:02:00"^^xsd:dateTime ;
+    :text "Very good" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r7
+:r7 rdf:type owl:NamedIndividual ,
+             :Rating ;
+    :isRatingFrom :person2 ;
+    :ratesInstitution :institution4 ;
+    :id "7" ;
+    :score "4.6" ;
+    :time_stamp "2019-12-05T22:15:00"^^xsd:dateTime ;
+    :text "I felt like a new person!" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r8
+:r8 rdf:type owl:NamedIndividual ,
+             :Rating ;
+    :isRatingFrom :person2 ;
+    :ratesInstitution :institution4 ;
+    :id "8" ;
+    :score "4.3" ;
+    :time_stamp "2019-12-06T22:16:00"^^xsd:dateTime ;
+    :text "Amazing service" .
+
+
+###  http://www.tartesdajulia.com/ontologies/Healthadvisor#r9
+:r9 rdf:type owl:NamedIndividual ,
+             :Rating ;
+    :isRatingFrom :person3 ;
+    :ratesInstitution :institution5 ;
+    :id "9" ;
+    :score "4.2" ;
+    :time_stamp "2019-12-06T22:31:00"^^xsd:dateTime ;
+    :text "Very good" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
