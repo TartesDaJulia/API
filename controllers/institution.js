@@ -20,7 +20,8 @@ var prefixes = `
     PREFIX ha: <http://www.tartesdajulia.com/ontologies/Healthadvisor#>
 `;
 
-var getLink = "http://localhost:7200/repositories/Healthadvisor" + "?query=";
+var getLink =
+	"http://localhost:7200/repositories/HealthadvisorTest" + "?query=";
 var getLinkUpdate =
 	"http://localhost:7200/repositories/HealthadvisorTest/statements" +
 	"?update=";
@@ -298,7 +299,7 @@ getInstId = async function () {
 
 	try {
 		var response = await axios.get(getLink + encoded);
-		result = myNormalize(response.data)[0].id + 1;
+		result = parseInt(myNormalize(response.data)[0].id) + 1;
 		return result;
 	} catch (e) {
 		throw e;

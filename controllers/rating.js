@@ -20,7 +20,8 @@ var prefixes = `
     PREFIX ha: <http://www.tartesdajulia.com/ontologies/Healthadvisor#>
 `;
 
-var getLink = "http://localhost:7200/repositories/Healthadvisor" + "?query=";
+var getLink =
+	"http://localhost:7200/repositories/HealthadvisorTest" + "?query=";
 var getLinkUpdate =
 	"http://localhost:7200/repositories/HealthadvisorTest/statements" +
 	"?update=";
@@ -154,16 +155,17 @@ rating.getRatingTime = async function (idRating) {
 rating.insertRating = async function (rat) {
 	//First check what ID should the institution have
 	var id = await getRatingId();
-
+	console.log(rat);
+	console.log(id);
 	var query = `insert data {
-		ha:rating${id} a owl:NamedIndividual.
-		ha:rating${id} a ha:Rating.
-		ha:rating${id} ha:id "${id}".
-		ha:rating${id} ha:text "${rat.text}".
-		ha:rating${id} ha:score "${rat.score}".
-		ha:rating${id} ha:time_stamp "${rat.time}".
-		ha:rating${id} ha:isRatingFrom ha:${rat.person}.
-		ha:rating${id} ha:ratesInstitution ha:${rat.institution}.
+		ha:r${id} a owl:NamedIndividual.
+		ha:r${id} a ha:Rating.
+		ha:r${id} ha:id "${id}".
+		ha:r${id} ha:text "${rat.text}".
+		ha:r${id} ha:score "${rat.score}".
+		ha:r${id} ha:time_stamp "${rat.time}".
+		ha:r${id} ha:isRatingFrom ha:person${rat.person}.
+		ha:r${id} ha:ratesInstitution ha:institution${rat.institution}.
 	}
 	`;
 	var encoded = encodeURIComponent(prefixes + query);
@@ -180,6 +182,7 @@ rating.insertRating = async function (rat) {
 };
 
 getRatingId = async function () {
+	//Get highest ID and add 1. IDs are unique...
 	var query = `select ?id where {
 		?rat a ha:Rating.
 		?rat ha:id ?id.
@@ -189,7 +192,8 @@ getRatingId = async function () {
 
 	try {
 		var response = await axios.get(getLink + encoded);
-		result = myNormalize(response.data)[0].id + 1;
+		console.log(myNormalize(response.data)[0].id);
+		result = parseInt(myNormalize(response.data)[0].id) + 1;
 		return result;
 	} catch (e) {
 		throw e;
