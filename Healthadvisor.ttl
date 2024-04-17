@@ -520,7 +520,7 @@
               :avg_rating "3.8" ;
               :email "geral@cbonfim.pt" ;
               :id "7" ;
-              :image_url "https://scontent.fopo2-1.fna.fbcdn.net/v/t1.0-9/1622270_267918746705049_1846727913_n.png?_nc_cat=101&_nc_ohc=Qr73qYPhJRAAQmdNGRuRcfMby3OUjvn-D1JJlIj4-DRtbx-tzdcwh9_Cg&_nc_ht=scontent.fopo2-1.fna&oh=885db40b95e1683aab91f591b6de233e&oe=5E9B750B" ;
+              :image_url "https://scontent.fopo4-2.fna.fbcdn.net/v/t1.6435-9/47375630_1187361621427419_7422049313959706624_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeGdmU0h6iBZwHiAMzI69SLv5xhlDiNz123nGGUOI3PXbQ_cxKUJFJUxorRmIbSOqvxvZEyJ4fFAS7b3F7hayYFl&_nc_ohc=809A2cwgwWQAX9XMdqH&_nc_ht=scontent.fopo4-2.fna&oh=23519024c82adfc4bb4c445be78ade97&oe=60AF1FB1" ;
               :name "Clínica do Bonfim" ;
               :nif "511222007" ;
               :phone_number "225103411" .

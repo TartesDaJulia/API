@@ -40,4 +40,11 @@ router.post("/login", function (req, res) {
 		.catch((e) => res.status(500).send(`Error getting password: ${e}`));
 });
 
+router.post("/update", function (req, res) {
+	person
+		.update(req.body)
+		.then((dados) => res.jsonp(dados))
+		.catch((e) => res.status(500).send(`Error updating person: ${e}`));
+});
+
 module.exports = router;

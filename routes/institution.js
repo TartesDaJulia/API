@@ -87,6 +87,13 @@ router.get("/:id/coordinates", function (req, res) {
 		.catch((e) => res.status(500).send(`Error listing coordinates: ${e}`));
 });
 
+router.get("/search/:keyword", function (req, res) {
+	institution
+		.searchInstitutions(req.params.keyword)
+		.then((dados) => res.jsonp(dados))
+		.catch((e) => res.status(500).send(`Error matching institutions: ${e}`));
+});
+
 router.post("/", function (req, res) {
 	institution
 		.insertInstitution(req.body)

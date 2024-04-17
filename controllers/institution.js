@@ -85,7 +85,14 @@ institution.getInstitutionSpecialties = async function (idInstitution) {
 	var encoded = encodeURIComponent(prefixes + query);
 	try {
 		var response = await axios.get(getLink + encoded);
-		return myNormalize(response.data);
+		var resultData = myNormalize(response.data);
+
+		if (resultData.length < 1) {
+			console.log("Data has no specialties");
+			resultData = JSON.parse('[{"id":"0","specialty":""}]');
+		}
+		console.log(resultData);
+		return resultData;
 	} catch (e) {
 		throw e;
 	}
@@ -256,6 +263,57 @@ institution.getInstitutionCoordinates = async function (idInstitution) {
 	try {
 		var response = await axios.get(getLink + encoded);
 		return myNormalize(response.data);
+	} catch (e) {
+		throw e;
+	}
+};
+
+institution.searchInstitutions = async function (keyword) {
+	var keyword = keyword.toLowerCase();
+
+	var query = `select ?id ?nif ?name ?phone ?email ?rating ?image ?district ?muni ?locality ?latitude ?longitude ?first ?second where {
+        ?inst a ha:Institution .
+    	?inst ha:id ?id. 
+    	?inst ha:nif ?nif.
+    	?inst ha:name ?name.
+    	?inst ha:phone_number ?phone.
+    	?inst ha:email ?email.
+    	?inst ha:avg_rating ?rating.
+    	?inst ha:image_url ?image.
+    	?inst ha:hasLocation ?location. 
+		?location ha:district ?district .
+		?location ha:municipality ?muni .
+    	?location ha:locality ?locality .
+		?location ha:first_line ?first.
+		?location ha:second_line ?second.
+     	?location ha:latitude ?latitude .
+    	?location ha:longitude ?longitude.
+     }`;
+	var encoded = encodeURIComponent(prefixes + query);
+
+	try {
+		var response = await axios.get(getLink + encoded);
+
+		var result = myNormalize(response.data);
+
+		var finalArray = [];
+
+		// search keyword in relevant data fields such as locality, name, etc
+		result.forEach((inst) => {
+			control = 0;
+			if (
+				inst.name.toLowerCase().includes(keyword) ||
+				inst.district.toLowerCase().includes(keyword) ||
+				inst.muni.toLowerCase().includes(keyword) ||
+				inst.locality.toLowerCase().includes(keyword) ||
+				inst.first.toLowerCase().includes(keyword) ||
+				inst.second.toLowerCase().includes(keyword)
+			) {
+				//if field includes keyword, add institution to new array of results
+				finalArray.push(inst);
+			}
+		});
+		return finalArray;
 	} catch (e) {
 		throw e;
 	}

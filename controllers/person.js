@@ -125,6 +125,43 @@ person.login = async function (person) {
 	}
 };
 
+person.update = async function (per) {
+	var personData = await getPersonData(per.id);
+
+	console.log(personData[0].first);
+	console.log(personData[0].last);
+	console.log(personData[0].email);
+	console.log(personData[0].pass);
+
+	console.log(per);
+
+	var updateQuery = `DELETE {
+		ha:person${per.id} ha:first_name "${personData[0].first}".
+		ha:person${per.id} ha:last_name "${personData[0].last}".
+		ha:person${per.id} ha:password "${personData[0].pass}".
+		ha:person${per.id} ha:email "${personData[0].email}".
+	} 
+	INSERT
+	{
+		ha:person${per.id} ha:first_name "${per.first}".
+		ha:person${per.id} ha:last_name "${per.last}".
+		ha:person${per.id} ha:password "${per.password}".
+		ha:person${per.id} ha:email "${per.email}".
+	}
+	WHERE {
+		ha:person${per.id} a ha:Person. 
+		ha:person${per.id} ha:id "${per.id}"
+	}`;
+
+	var encoded = encodeURIComponent(prefixes + updateQuery);
+	try {
+		var response = await axios.post(getLinkUpdate + encoded);
+		return response.data;
+	} catch (e) {
+		throw e;
+	}
+};
+
 getPersonId = async function () {
 	var query = `select ?id where {
 		?person a ha:Person.
@@ -137,6 +174,25 @@ getPersonId = async function () {
 		var response = await axios.get(getLink + encoded);
 		result = parseInt(myNormalize(response.data)[0].id) + 1;
 		return result;
+	} catch (e) {
+		throw e;
+	}
+};
+
+getPersonData = async function (idPerson) {
+	var query = `select ?id ?email ?first ?last ?pass where {
+		?per a ha:Person.
+		?per ha:id "${idPerson}".
+		?per ha:email ?email.
+		?per ha:first_name ?first.
+		?per ha:last_name ?last.
+		?per ha:password ?pass
+		   } `;
+	var encoded = encodeURIComponent(prefixes + query);
+
+	try {
+		var response = await axios.get(getLink + encoded);
+		return myNormalize(response.data);
 	} catch (e) {
 		throw e;
 	}
